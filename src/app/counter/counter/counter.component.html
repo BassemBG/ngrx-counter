@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-md-12 text-center">
       <div class="my-3">
-        <app-counter-output [counter]="counter" ></app-counter-output>
+        <app-counter-output></app-counter-output> 
+        <!--No need to send data with @input 
+          cuz available in the store-->
       </div>
 
       <div class="my-3">
-        <app-counter-buttons
-        (increment)="onIncrement()"
-        (decrement)="onDecrement()"
-        (reset)="onReset()"
-        ></app-counter-buttons>
+        <app-counter-buttons></app-counter-buttons>
+        <!--No need to call events 
+          cuz actions automatically communicate with reducers-->
       </div>
     </div>
   </div>

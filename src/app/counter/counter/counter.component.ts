@@ -7,19 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent {
 
-  counter : number = 0;
-
-  onIncrement(){
-    this.counter++;
-  }
-
-  onDecrement(){
-    this.counter--;
-  }
-
-  onReset(){
-    this.counter = 0;
-  }
-
-
+  //no need to initialise the counter variable here 
+  //cuz it's available now in the store
+  //accessible from every component
 }
