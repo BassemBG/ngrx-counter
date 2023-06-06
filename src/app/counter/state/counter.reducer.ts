@@ -9,21 +9,21 @@ const _counterReducer = createReducer(
     on(increment, (state) => {  //state will take the value of initialState
         return {
             ...state,  //first, return the state cuz immutable
-            counter: state.counter++  //then change the properties
+            counter: state.counter + 1  //then change the properties
         }
     }), 
     //works when decrement action is triggered
     on(decrement, (state) => {  //state will take the value of initialState
         return {
             ...state,  //first, return the state cuz immutable
-            counter: state.counter--  //then change the properties
+            counter: state.counter - 1  //then change the properties
         }
     }),
     //works when reset action is triggered
     on(reset, (state) => {
         return {
             ...state,
-            counter: state.counter = 0
+            counter: 0
         }        
     })
 );
