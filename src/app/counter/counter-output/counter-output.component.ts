@@ -1,21 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { CounterState } from '../state/counter.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-counter-output',
   templateUrl: './counter-output.component.html',
   styleUrls: ['./counter-output.component.css']
 })
-export class CounterOutputComponent {
-  counter: number;
-  constructor(private store: Store<{counter : { counter : number } }>){} //inject the store . That is the structure of the store data
+export class CounterOutputComponent implements OnInit{
+  counter$: Observable<{counter: number}>;
+  constructor(private store: Store<{counter : CounterState }>){} //inject the store . That is the structure of the store data
 
   ngOnInit(): void{
-    this.store.select('counter').subscribe(
-      data => {
-        this.counter = data.counter  //we got the data.counter because we have counter : number in the injection
-      }
-    )  //select returns an observable -> subscribe
+    this.counter$ = this.store.select('counter'); //put data directly in observable instead of subscribing with old method
+  
   }
 
 }
