@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CounterState } from '../state/counter.state';
 import { Store } from '@ngrx/store';
 import { changeText, customIncrement } from '../state/counter.actions';
+import { getText } from '../state/counter.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-custom-counter-input',
@@ -10,14 +12,12 @@ import { changeText, customIncrement } from '../state/counter.actions';
 })
 export class CustomCounterInputComponent implements OnInit{
   value: number;
-  text: String = "Hello world";
+  text$: Observable<String>;
   modifiedText : String = "Modified Hello world";
   constructor(private store: Store<{counter : CounterState }>){}
 
   ngOnInit(): void {
-    this.store.select('counter').subscribe( data=> {
-      this.text = data.text;
-    })
+    this.text$ = this.store.select(getText); //use selector to only get specific data (text in this case)
   }
 
   onAdd(){

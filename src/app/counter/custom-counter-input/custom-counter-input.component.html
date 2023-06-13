@@ -1,5 +1,5 @@
 <div>
-    <div class="my-3"> {{ text }} </div>
+    <div class="my-3"> {{ text$ | async }} </div>
     <input type="tel" placeholder="Enter value" [(ngModel)]="value">
     <button class="btn btn-primary" (click)="onAdd()">Add to counter</button>
 </div>
