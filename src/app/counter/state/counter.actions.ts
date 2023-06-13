@@ -7,3 +7,8 @@ export const customIncrement = createAction(
     "customincrement", 
     props<{value : number}>() //value will be sent as parameter
 );
+
+export const changeText = createAction(
+    "changeText",
+    props<{text : String}>()
+);
