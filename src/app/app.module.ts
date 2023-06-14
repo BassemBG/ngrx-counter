@@ -9,6 +9,9 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
 import { CustomCounterInputComponent } from './counter/custom-counter-input/custom-counter-input.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 
 
@@ -18,12 +21,16 @@ import { FormsModule } from '@angular/forms';
     CounterComponent,
     CounterOutputComponent,
     CounterButtonsComponent,
-    CustomCounterInputComponent
+    CustomCounterInputComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({counter: counterReducer}) //counter is the name that will be used inside components and the assigned property is the reducer . we can add more state: reducer -> needs to be the same states as in store 
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
